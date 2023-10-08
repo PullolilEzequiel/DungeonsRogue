@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dt065dc2xs47j"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_l7bol"]
+[ext_resource type="Texture2D" uid="uid://bg7ntjolyftg4" path="res://assets/character and tileset/Dungeon_Character.png" id="2_bjpl0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5kng0"]
+size = Vector2(10, 12)
+
+[node name="Player" type="CharacterBody2D"]
+texture_filter = 1
+position = Vector2(200, 90)
+script = ExtResource("1_l7bol")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_bjpl0")
+hframes = 7
+vframes = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5kng0")
