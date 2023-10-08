@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://du0fcdn4u6bai"]
+
+[ext_resource type="Texture2D" uid="uid://db3hrdxgi6deh" path="res://doortileset.png" id="1_wtg2q"]
+
+[node name="door" type="Node2D"]
+texture_filter = 1
+position = Vector2(128, 48)
+metadata/door_img = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_wtg2q")
+hframes = 4
+vframes = 3
+frame = 4
