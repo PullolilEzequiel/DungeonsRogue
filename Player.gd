@@ -1,15 +1,25 @@
 extends CharacterBody2D
 
-var speed := 60
-var direction_x := 0.0
-var direction_y := 0.0
-@onready var sprite := $Sprite2D
+var pixel_per_meter := 16
+var direction : Vector2
+var velocidad : Vector2
+var rapidez := 3 * pixel_per_meter
+
+
+func _input(event):
+	direction = Vector2.ZERO
+	if Input.is_action_pressed("ui_left"):
+		direction.x = -1 
+	if Input.is_action_pressed("ui_right"):
+		direction.x = 1 
+
+	if Input.is_action_pressed("ui_down"):
+		direction.y = -1 
+	if Input.is_action_pressed("ui_up"):
+		direction.y = 1 
+	
 func _physics_process(delta):
-	direction_x = Input.get_axis("ui_left", "ui_right") * 2
-	direction_y = Input.get_axis("ui_up", "ui_down") * 2
-	
-	velocity.x = direction_x * speed 
-	velocity.y = direction_y * speed 
-	
-	sprite.flip_h = direction_x < 0 if direction_x != 0 else sprite.flip_h
+	velocidad.x = direction.x * rapidez
+	velocidad.y = direction.y * rapidez
+		
 	move_and_slide()
